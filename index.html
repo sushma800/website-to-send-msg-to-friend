@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Message to Friend</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #fff;
+    width: 350px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 90px;
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sent-box {
+    display: none;
+    margin-top: 15px;
+    background: #e6f7e6;
+    padding: 10px;
+    border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Send Message</h2>
+
+    <input type="text" id="friend" placeholder="Friend's Name">
+    <textarea id="message" placeholder="Type your message..."></textarea>
+
+    <button onclick="sendMessage()">Send Message</button>
+
+    <div class="sent-box" id="output"></div>
+</div>
+
+<script>
+function sendMessage() {
+    let name = document.getElementById("friend").value;
+    let msg = document.getElementById("message").value;
+
+    if (name === "" || msg === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    document.getElementById("output").style.display = "block";
+    document.getElementById("output").innerHTML =
+        "<b>To:</b> " + name + "<br><b>Message:</b> " + msg;
+}
+</script>
+
+</body>
+</html>
